@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Chatopia</string>
+
+
+    <string name="need_a_new_account">NEED A NEW ACCOUNT ?</string>
+    <string name="display_name">Display Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="log_out">Log Out</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_status">Hi there, I\'m using Chatopia  </string>
+    <string name="default_notification_channel_id">hello</string>
+    <string name="fcm_message">Hello_notification_test</string>
+    <string name="let_s_get_started">Let\'s Get Started</string>
+    <string name="register">Register</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login">Login</string>
+    <string name="user_default_status">User default Status</string>
+
+</resources>
