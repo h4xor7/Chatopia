@@ -15,6 +15,11 @@ object Constants {
     const val STATE_RQ_RECIEVED = "req_received"
     const val STATE_RQ_SENT = "req_sent"
     const val STATE_FRND = "friends"
+    const val CHAT_REF = "Chat"
+    const val  SEEN_REF = "seen"
+    const val  MSG_REF = "messages"
+    const val  TIME_STAMP_REF = "timestamp"
+
 
 
 

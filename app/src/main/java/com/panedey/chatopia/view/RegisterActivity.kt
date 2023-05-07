@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.panedey.chatopia.databinding.ActivityRegisterBinding
 
+@Suppress("DEPRECATION")
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var mauth: FirebaseAuth

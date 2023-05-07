@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Chatopia"
         tools:targetApi="31">
         <activity
+            android:name=".view.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.UsersActivity"
             android:exported="false" />
         <activity

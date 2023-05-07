@@ -128,6 +128,7 @@ class ProfileActivity : AppCompatActivity() {
                                     }
                                 }
                                 else {
+                                    //mtlb friend hai
                                     mFriendDatabase!!.child(mCurrentUser!!.uid)
                                         .addListenerForSingleValueEvent(object :
                                             ValueEventListener {
@@ -241,11 +242,11 @@ class ProfileActivity : AppCompatActivity() {
             if (mCurrentState.equals(STATE_RQ_RECIEVED)) {
                 val currentDate: String = DateFormat.getDateTimeInstance().format(Date())
 
-                val friendsMap = hashMapOf<String, Any>()
+                val friendsMap = hashMapOf<String?, Any?>()
                 friendsMap["Friends/${mCurrentUser!!.uid}/$userId/date"] = currentDate
                 friendsMap["Friends/$userId/${mCurrentUser!!.uid}/date"] = currentDate
-                friendsMap["Friend_req/${mCurrentUser!!.uid}/$userId"] = "null"
-                friendsMap["Friend_req/$userId/${mCurrentUser!!.uid}"] = "null"
+                friendsMap["Friend_req/${mCurrentUser!!.uid}/$userId"] = null
+                friendsMap["Friend_req/$userId/${mCurrentUser!!.uid}"] = null
 
                 mRootRef!!.updateChildren(
                     friendsMap
@@ -303,7 +304,6 @@ class ProfileActivity : AppCompatActivity() {
 
         }
 
-        Toast.makeText(this, "$mCurrentState", Toast.LENGTH_SHORT).show()
 
     }
 

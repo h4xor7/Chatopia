@@ -1,10 +1,4 @@
 
-m
-=app/src/main/java/com/panedey/chatopia/view/StatusActivity.kt,b\c\bcb88b95fc45e7ac6b09dcb50ce4b171e7f5e9b7
-k
-;app/src/main/java/com/panedey/chatopia/view/ChatFragment.kt,9\4\944ce0e53cfd23f5ee5f4486a4af60de3e4a7f2f
-o
-?app/src/main/java/com/panedey/chatopia/view/RequestsFragment.kt,0\a\0ae93e8e04514858e7098757b8297aa03e910965
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 @
@@ -17,15 +11,11 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-s
-Capp/src/main/java/com/panedey/chatopia/view/SectionsPagerAdapter.kt,9\1\913555bb4faff5c8923ca3ebcdb3351730b5b24d
-n
->app/src/main/java/com/panedey/chatopia/view/FriendsFragment.kt,b\4\b484df8896586eb51d63cd39013384f979ad5721
+f
+6app/src/main/java/com/panedey/chatopia/MainActivity.kt,4\0\407aa2adadf9a8e2b1ce4e43ce5870d860ad2255
+f
+6app/src/main/java/com/panedey/chatopia/models/Users.kt,4\3\4353c5f8d652b3bf2b8ef2e53d821e0e8fe1c7de
+k
+;app/src/main/java/com/panedey/chatopia/view/ChatFragment.kt,9\4\944ce0e53cfd23f5ee5f4486a4af60de3e4a7f2f
 l
-<app/src/main/java/com/panedey/chatopia/view/LoginActivity.kt,7\2\725598bc52594e90e32b732605b95f15b3f033f7
-o
-?app/src/main/java/com/panedey/chatopia/view/RegisterActivity.kt,2\a\2ae97424452bb10151b0e1027ce0d8916deabed9
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+<app/src/main/java/com/panedey/chatopia/view/UsersActivity.kt,2\f\2f55320408cd2ac7ac44bdcb4717d8e60d7f53a7
