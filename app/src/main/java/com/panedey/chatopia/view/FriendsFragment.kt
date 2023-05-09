@@ -22,6 +22,7 @@ import com.panedey.chatopia.databinding.FragmentFriendsBinding
 import com.panedey.chatopia.models.Friends
 import com.panedey.chatopia.utils.Constants.FRND_REF
 import com.panedey.chatopia.utils.Constants.USER_REF
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
 
@@ -135,6 +136,9 @@ class FriendsFragment : Fragment() {
 
 
                             }
+                            Picasso.get().load(userThumb).placeholder(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark)
+                                .into(holder.userImageView)
+
 
 
                         }

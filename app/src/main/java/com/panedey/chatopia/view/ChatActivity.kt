@@ -1,10 +1,8 @@
 package com.panedey.chatopia.view
 
-import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -20,7 +18,6 @@ import com.google.firebase.database.ServerValue
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.panedey.chatopia.R
 import com.panedey.chatopia.databinding.ActivityChatBinding
 import com.panedey.chatopia.models.Messages
 import com.panedey.chatopia.utils.Constants.CHAT_REF
@@ -29,8 +26,6 @@ import com.panedey.chatopia.utils.Constants.MSG_REF
 import com.panedey.chatopia.utils.Constants.SEEN_REF
 import com.panedey.chatopia.utils.Constants.TIME_STAMP_REF
 import com.panedey.chatopia.utils.Constants.USER_REF
-import com.panedey.chatopia.utils.GetTimeAgo
-import com.panedey.chatopia.utils.GetTimeAgo.Companion.getTimeAgo
 import de.hdodenhof.circleimageview.CircleImageView
 
 
@@ -63,10 +58,10 @@ class ChatActivity : AppCompatActivity() {
         binding = ActivityChatBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        setSupportActionBar(binding.chatAppBar as Toolbar)
+        setSupportActionBar(binding.topAppBar as Toolbar)
         //supportActionBar?.title = "All Users"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowCustomEnabled(true)
+        //supportActionBar?.setDisplayShowCustomEnabled(true)
 
         mRootRef = FirebaseDatabase.getInstance().reference
         mAuth = FirebaseAuth.getInstance()
@@ -75,9 +70,9 @@ class ChatActivity : AppCompatActivity() {
         mChatUser = intent.getStringExtra("user_id")
         userName = intent.getStringExtra("user_name")
 
-        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val actionBarView = inflater.inflate(R.layout.chat_custom_bar, null)
-        actionBar?.customView = actionBarView
+        //val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+       // val actionBarView = inflater.inflate(R.layout.chat_custom_bar, null)
+      //  actionBar?.customView = actionBarView
 
       //  mTitleView = findViewById<TextView>(R.id.custom_bar_title)
       //  mLastSeenView = findViewById<TextView>(R.id.custom_bar_seen)
@@ -102,7 +97,8 @@ class ChatActivity : AppCompatActivity() {
         mRootRef?.child(CHAT_REF)?.child(mCurrentUserId!!)?.child(mChatUser!!)?.child(SEEN_REF)
             ?.setValue(true)
         loadMessage()
-       // mTitleView.text = userName
+
+        binding.customBarTitle.text = userName
 
 
         mRootRef?.child(USER_REF)?.child(mChatUser!!)?.addValueEventListener(object :
@@ -110,17 +106,22 @@ class ChatActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val online = "true"
                 val image: String = snapshot.child(IMAGE_REF).value.toString()
+                val onlineValue = snapshot.child(SEEN_REF).value.toString()
 
-                if (online == "true") {
-                  //  mLastSeenView.text = "Online"
+                Log.d(Companion.TAG, "onDataChange:$onlineValue ")
+               /* if (online == "true")
+                {
+                    binding.customBarSeen.text = "Online"
 
-
-                } else {
+                }
+                else {
                     val getTimeAgo = GetTimeAgo()
                     val lastTime = online.toLong()
                     val lastSeenTime: String = getTimeAgo(lastTime)!!
-                  //  mLastSeenView.text = lastSeenTime
-                }
+                    binding.customBarSeen.text = lastSeenTime
+
+
+                }*/
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -339,5 +340,13 @@ class ChatActivity : AppCompatActivity() {
         })
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+    companion object {
+        private const val TAG = "ChatActivity"
     }
 }
