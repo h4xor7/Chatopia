@@ -1,12 +1,4 @@
 
-m
-=app/src/main/java/com/panedey/chatopia/view/StatusActivity.kt,b\c\bcb88b95fc45e7ac6b09dcb50ce4b171e7f5e9b7
-k
-;app/src/main/java/com/panedey/chatopia/view/ChatFragment.kt,9\4\944ce0e53cfd23f5ee5f4486a4af60de3e4a7f2f
-o
-?app/src/main/java/com/panedey/chatopia/view/RequestsFragment.kt,0\a\0ae93e8e04514858e7098757b8297aa03e910965
-?
-settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 @
 local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
 X
@@ -17,15 +9,33 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+f
+6app/src/main/java/com/panedey/chatopia/MainActivity.kt,4\0\407aa2adadf9a8e2b1ce4e43ce5870d860ad2255
+f
+6app/src/main/java/com/panedey/chatopia/models/Users.kt,4\3\4353c5f8d652b3bf2b8ef2e53d821e0e8fe1c7de
 s
 Capp/src/main/java/com/panedey/chatopia/view/SectionsPagerAdapter.kt,9\1\913555bb4faff5c8923ca3ebcdb3351730b5b24d
-n
->app/src/main/java/com/panedey/chatopia/view/FriendsFragment.kt,b\4\b484df8896586eb51d63cd39013384f979ad5721
+j
+:app/src/main/java/com/panedey/chatopia/utils/GetTimeAgo.kt,5\c\5cc28ca5bf9f4722613d921bf87c88ab4fc9d978
 l
 <app/src/main/java/com/panedey/chatopia/view/LoginActivity.kt,7\2\725598bc52594e90e32b732605b95f15b3f033f7
 o
 ?app/src/main/java/com/panedey/chatopia/view/RegisterActivity.kt,2\a\2ae97424452bb10151b0e1027ce0d8916deabed9
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+o
+?app/src/main/java/com/panedey/chatopia/view/RequestsFragment.kt,0\a\0ae93e8e04514858e7098757b8297aa03e910965
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+w
+G.idea/sonarlint/issuestore/4/0/407aa2adadf9a8e2b1ce4e43ce5870d860ad2255,0\c\0c54c49f4f27462be3b9e4531248d2d55651994d
+
+Q.idea/sonarlint/securityhotspotstore/4/0/407aa2adadf9a8e2b1ce4e43ce5870d860ad2255,f\a\faf5026fba852deb9664eef96c206c6499fbbb2b
+w
+G.idea/sonarlint/issuestore/4/3/4353c5f8d652b3bf2b8ef2e53d821e0e8fe1c7de,1\e\1eadfdb3c26fb9305990e447468ed44dbc4f258e
+
+Q.idea/sonarlint/securityhotspotstore/4/3/4353c5f8d652b3bf2b8ef2e53d821e0e8fe1c7de,b\d\bdaa70cf9ffa8ceeb7319503fe9c5a12b117dd78
+h
+8app/src/main/java/com/panedey/chatopia/models/Friends.kt,a\d\ad1928a2d67e43f916581aa74071fb35ed9021c5
+i
+9app/src/main/java/com/panedey/chatopia/models/Messages.kt,8\2\8290613d1828a5cb6fbb51c56497505c66830b27

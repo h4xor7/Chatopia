@@ -23,6 +23,7 @@ import com.panedey.chatopia.databinding.ActivityUsersBinding
 import com.panedey.chatopia.models.Users
 import com.panedey.chatopia.utils.Constants
 import com.panedey.chatopia.utils.Constants.USER_REF
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
 
@@ -84,6 +85,11 @@ class UsersActivity : AppCompatActivity() {
                 holder.userText?.text = model.name.toString()
                 holder.userStatus?.text = model.status.toString()
                 val userId = getRef(position).key
+
+
+                Picasso.get().load(model.image.toString())
+                    .placeholder(resources.getDrawable(R.drawable.default_avatar))
+                    .into( holder.userImageView)
 
                 /*  holder.userImageView?.load(model.image.toString()){
                       placeholder(R.drawable.default_avatar)

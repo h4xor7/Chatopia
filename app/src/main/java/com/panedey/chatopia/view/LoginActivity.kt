@@ -13,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 import com.panedey.chatopia.databinding.ActivityLoginBinding
 
 
+@Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private var mLoginProgress: ProgressDialog? = null

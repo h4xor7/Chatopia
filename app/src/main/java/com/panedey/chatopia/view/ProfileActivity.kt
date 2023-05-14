@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.panedey.chatopia.R
 import com.panedey.chatopia.databinding.ActivityProfileBinding
 import com.panedey.chatopia.utils.Constants.DISPLAY_NAME_REF
 import com.panedey.chatopia.utils.Constants.FRND_REF
@@ -23,6 +24,7 @@ import com.panedey.chatopia.utils.Constants.STATE_RQ_SENT
 import com.panedey.chatopia.utils.Constants.STATUS_REF
 import com.panedey.chatopia.utils.Constants.USER_ID
 import com.panedey.chatopia.utils.Constants.USER_REF
+import com.squareup.picasso.Picasso
 import java.text.DateFormat
 import java.util.*
 
@@ -84,6 +86,12 @@ class ProfileActivity : AppCompatActivity() {
                 binding.profileDisplayName.text = displayName
                 binding.profileStatus.text = status
                 // binding.profileImage.load(image)
+
+                Picasso.get().load(image)
+                    .placeholder(resources.getDrawable(R.drawable.default_avatar))
+                    .into( binding.profileImage)
+
+
                 if (mCurrentUser?.uid.equals(userId)) {
 
                     // userprofile
@@ -128,6 +136,7 @@ class ProfileActivity : AppCompatActivity() {
                                     }
                                 }
                                 else {
+                                    //mtlb friend hai
                                     mFriendDatabase!!.child(mCurrentUser!!.uid)
                                         .addListenerForSingleValueEvent(object :
                                             ValueEventListener {
@@ -241,11 +250,11 @@ class ProfileActivity : AppCompatActivity() {
             if (mCurrentState.equals(STATE_RQ_RECIEVED)) {
                 val currentDate: String = DateFormat.getDateTimeInstance().format(Date())
 
-                val friendsMap = hashMapOf<String, Any>()
+                val friendsMap = hashMapOf<String?, Any?>()
                 friendsMap["Friends/${mCurrentUser!!.uid}/$userId/date"] = currentDate
                 friendsMap["Friends/$userId/${mCurrentUser!!.uid}/date"] = currentDate
-                friendsMap["Friend_req/${mCurrentUser!!.uid}/$userId"] = "null"
-                friendsMap["Friend_req/$userId/${mCurrentUser!!.uid}"] = "null"
+                friendsMap["Friend_req/${mCurrentUser!!.uid}/$userId"] = null
+                friendsMap["Friend_req/$userId/${mCurrentUser!!.uid}"] = null
 
                 mRootRef!!.updateChildren(
                     friendsMap
@@ -303,7 +312,6 @@ class ProfileActivity : AppCompatActivity() {
 
         }
 
-        Toast.makeText(this, "$mCurrentState", Toast.LENGTH_SHORT).show()
 
     }
 
