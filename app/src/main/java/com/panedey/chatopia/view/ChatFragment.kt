@@ -25,7 +25,10 @@ import com.panedey.chatopia.R
 import com.panedey.chatopia.databinding.FragmentChatBinding
 import com.panedey.chatopia.models.Conv
 import com.panedey.chatopia.utils.Constants
+import com.panedey.chatopia.utils.Constants.DISPLAY_NAME_REF
+import com.panedey.chatopia.utils.Constants.IMAGE_REF
 import com.panedey.chatopia.utils.Constants.MSG_REF
+import com.panedey.chatopia.utils.Constants.STATUS_REF
 import com.panedey.chatopia.utils.Constants.TIME_STAMP_REF
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
@@ -166,9 +169,15 @@ class ChatFragment : Fragment() {
                 mUsersDatabase?.child(listUserId!!)
                     ?.addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            val userName = snapshot.child("name").value.toString()
-                            val userThumb = snapshot.child("image").value.toString()
-                           // val userStatus = snapshot.child("status").value.toString()
+                            val userName = snapshot.child(DISPLAY_NAME_REF).value.toString()
+                            val userThumb = snapshot.child(IMAGE_REF).value.toString()
+                            val userStatus = snapshot.child(STATUS_REF).value.toString()
+
+                            if(userThumb!="default"){
+                                Picasso.get().load(userThumb)
+                                    .into(holder.userImageView)
+                            }
+
 
                             if (snapshot.hasChild("online")) {
                                 val userOnline: String = snapshot.child("online").value.toString()
@@ -186,7 +195,7 @@ class ChatFragment : Fragment() {
                             }
                             holder.userText?.text = userName
 
-                           // holder.userStatus?.text = userStatus
+                            holder.userStatus?.text = userStatus
 
                             holder.itemView.setOnClickListener {
                                 val chatIntent = Intent(context, ChatActivity::class.java)
@@ -195,8 +204,6 @@ class ChatFragment : Fragment() {
                                 startActivity(chatIntent)
 
                             }
-                            Picasso.get().load(userThumb).placeholder(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark)
-                                .into(holder.userImageView)
 
 
 

@@ -47,9 +47,10 @@ class MessageAdapter(private val mMessageList: List<Messages>) :
                     Log.d("TAG", "onBindViewHolder unde hai: $fromUser, $image")
                     //holder.messageSingleLayoutBinding.displayName.text = name
                     holder.messageSingleLayoutBinding.nameTextLayout.text = name
+                    if(image!="default"){
+                        Picasso.get().load(image).into(holder.messageSingleLayoutBinding.messageImageLayout)
 
-                    Picasso.get().load(image).placeholder(R.drawable.common_google_signin_btn_icon_dark)
-                        .into(holder.messageSingleLayoutBinding.messageImageLayout)
+                    }
 
                 }
 

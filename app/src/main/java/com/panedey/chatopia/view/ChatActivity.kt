@@ -18,6 +18,7 @@ import com.google.firebase.database.ServerValue
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.panedey.chatopia.R
 import com.panedey.chatopia.databinding.ActivityChatBinding
 import com.panedey.chatopia.models.Messages
 import com.panedey.chatopia.utils.Constants.CHAT_REF
@@ -26,6 +27,7 @@ import com.panedey.chatopia.utils.Constants.MSG_REF
 import com.panedey.chatopia.utils.Constants.SEEN_REF
 import com.panedey.chatopia.utils.Constants.TIME_STAMP_REF
 import com.panedey.chatopia.utils.Constants.USER_REF
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
 
@@ -106,6 +108,11 @@ class ChatActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val online = "true"
                 val image: String = snapshot.child(IMAGE_REF).value.toString()
+
+                Picasso.get().load(image)
+                    .placeholder(resources.getDrawable(R.drawable.default_avatar))
+                    .into(binding.customBarImage)
+
                 val onlineValue = snapshot.child(SEEN_REF).value.toString()
 
                 Log.d(Companion.TAG, "onDataChange:$onlineValue ")
@@ -145,28 +152,20 @@ class ChatActivity : AppCompatActivity() {
                         chatUserMap["Chat/$mCurrentUserId/$mChatUser"] = chatAddMap
                         chatUserMap["Chat/$mChatUser/$mCurrentUserId"] = chatAddMap
 
-                        mRootRef?.updateChildren(chatUserMap,
-                            object : DatabaseReference.CompletionListener {
-                                override fun onComplete(
-                                    error: DatabaseError?,
-                                    ref: DatabaseReference
-                                ) {
+                        mRootRef?.updateChildren(chatUserMap
+                        ) { error, ref ->
+                            if (error != null) {
 
-                                    if (error != null) {
+                                Log.d("CHAT_LOG", error.message.toString())
 
-                                        Log.d("CHAT_LOG", error.message.toString())
-
-                                    }
-                                }
-
-                            })
+                            }
+                        }
 
 
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    //TODO("Not yet implemented")
                 }
 
             })
@@ -215,7 +214,7 @@ class ChatActivity : AppCompatActivity() {
                 }
 
                 Log.d(
-                    "TOTALKEYS",
+                    "TOTAL-KEYS",
                     "Last Key : $mLastKey | Prev Key : $mPrevKey | Message Key : $messageKey"
                 )
 

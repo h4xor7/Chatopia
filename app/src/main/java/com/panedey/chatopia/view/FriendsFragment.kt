@@ -20,7 +20,10 @@ import com.google.firebase.database.*
 import com.panedey.chatopia.R
 import com.panedey.chatopia.databinding.FragmentFriendsBinding
 import com.panedey.chatopia.models.Friends
+import com.panedey.chatopia.utils.Constants.DISPLAY_NAME_REF
 import com.panedey.chatopia.utils.Constants.FRND_REF
+import com.panedey.chatopia.utils.Constants.IMAGE_REF
+import com.panedey.chatopia.utils.Constants.STATUS_REF
 import com.panedey.chatopia.utils.Constants.USER_REF
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
@@ -97,9 +100,9 @@ class FriendsFragment : Fragment() {
                 mUsersDatabase?.child(listUserId!!)
                     ?.addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            val userName = snapshot.child("name").value.toString()
-                            val userThumb = snapshot.child("image").value.toString()
-                            val userStatus = snapshot.child("status").value.toString()
+                            val userName = snapshot.child(DISPLAY_NAME_REF).value.toString()
+                            val userThumb = snapshot.child(IMAGE_REF).value.toString()
+                            val userStatus = snapshot.child(STATUS_REF).value.toString()
 
                             if (snapshot.hasChild("online")) {
                                 val userOnline: String = snapshot.child("online").value.toString()
